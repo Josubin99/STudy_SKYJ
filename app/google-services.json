@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "22023526137",
+    "firebase_url": "https://skyj-1818.firebaseio.com",
+    "project_id": "skyj-1818",
+    "storage_bucket": "skyj-1818.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:22023526137:android:f065c7ad07c55ad560f428",
+        "android_client_info": {
+          "package_name": "com.example.skyj"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "22023526137-0p75jfg6bqha4pq1qftlobg8cgf1grse.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.skyj",
+            "certificate_hash": "acfabc6cd22a2fc5d5c55e1be875d88a50cad956"
+          }
+        },
+        {
+          "client_id": "22023526137-3em449lj2thagqoo11p2596cqhnceq70.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9NDxz7WbaUhjiqrch1orSb-_7MWxWQsg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "22023526137-3em449lj2thagqoo11p2596cqhnceq70.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
