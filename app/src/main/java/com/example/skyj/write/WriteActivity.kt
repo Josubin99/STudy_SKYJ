@@ -27,13 +27,19 @@ class WriteActivity : AppCompatActivity() {
     var storage:FirebaseStorage?=null
     private lateinit var auth : FirebaseAuth
     private val db = FirebaseFirestore.getInstance()
-    val contentWriterDTO=ContentWriterDTO()
 
     var photoUri:Uri?=null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_write)
+
+
+        storage=FirebaseStorage.getInstance()
+
+        //Initiate storage
+        var photoPickerIntent=Intent(Intent.ACTION_PICK)
 
         ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 1)
         if (ContextCompat.checkSelfPermission(this,Manifest.permission.READ_EXTERNAL_STORAGE)==PackageManager.PERMISSION_DENIED){
@@ -41,13 +47,9 @@ class WriteActivity : AppCompatActivity() {
             finish()
         }
 
-        storage=FirebaseStorage.getInstance()
-
-        //Initiate storage
-        var photoPickerIntent=Intent(Intent.ACTION_PICK)
-
 
         post_img_upload_button.setOnClickListener {
+
                 //Open the Album
                 photoPickerIntent.type = "image/*"
                 startActivityForResult(photoPickerIntent, PICK_IMAGE_FROM_ALBUM)
@@ -56,16 +58,8 @@ class WriteActivity : AppCompatActivity() {
 
         auth=FirebaseAuth.getInstance()
 
-        val docRef=db.collection("users").document(auth.currentUser?.uid.toString())
-        docRef.get()
-            .addOnSuccessListener { documentSnapshot ->
-                contentWriterDTO.writer=documentSnapshot.get("name").toString()
-                contentWriterDTO.email=documentSnapshot.get("email").toString()
-                contentWriterDTO.major=documentSnapshot.get("major").toString()
-            }
 
         post_upload_button.setOnClickListener {
-            db.collection("interview_post_writerInfo")?.document()?.set(contentWriterDTO)
             contentUpload()
         }
     }
@@ -95,6 +89,8 @@ class WriteActivity : AppCompatActivity() {
 
         storageRef?.putFile(photoUri!!)?.addOnSuccessListener {
             val contentDTO=ContentDTO()
+            val contentWriterDTO=ContentWriterDTO()
+            val docRef=db.collection("users").document(auth.currentUser?.uid.toString())
             storageRef.downloadUrl
                 .addOnSuccessListener {uri ->
                     contentDTO.imageUrl=uri.toString()
@@ -112,6 +108,16 @@ class WriteActivity : AppCompatActivity() {
                         }
                         .addOnFailureListener {
                             Toast.makeText(this,"업로드 실패",Toast.LENGTH_LONG).show()
+                        }
+
+                    docRef.get()
+                        .addOnSuccessListener { documentSnapshot ->
+                            contentWriterDTO.writer=documentSnapshot.get("name").toString()
+                            contentWriterDTO.email=documentSnapshot.get("email").toString()
+                            contentWriterDTO.major=documentSnapshot.get("major").toString()
+                            contentWriterDTO.timestamp=contentDTO.timestamp
+
+                                db.collection("interview_post_writerInfo")?.document()?.set(contentWriterDTO)
                         }
                 }
         }

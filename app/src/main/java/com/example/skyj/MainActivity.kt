@@ -10,6 +10,7 @@ import com.example.skyj.StudyFragment.FragmentAdapter
 import com.example.skyj.StudyFragment.InterviewFragment
 import com.example.skyj.StudyFragment.NcsFragment
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_study.*
 import kotlinx.android.synthetic.main.menu_bar.*
@@ -48,6 +49,7 @@ class MainActivity : AppCompatActivity() {
         gridview.adapter=gridviewAdapter
 
         gridview.setOnItemClickListener { adapterView, view, i, l ->
+
             val intent = Intent(this, StudyActivity::class.java)
             startActivity(intent)
 

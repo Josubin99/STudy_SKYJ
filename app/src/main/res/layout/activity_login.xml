@@ -68,7 +68,7 @@
             android:gravity="center"
             android:textColor="#99CCFF"
             android:background="#ffffff"
-            android:text="SING UP"
+            android:text="SIGN UP"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 

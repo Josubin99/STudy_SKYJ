@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Post.ContentFragment">
+
+        <TextView
+            android:id="@+id/postInfo_content"
+            android:layout_margin="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="18dp"
+            android:text="매주 월요일 6시 공릉에서 한전 면접 스터디 하실 분 구합니다!
+성실하게 참여하실분 댓글 달아주세요!" />
+
+</FrameLayout>

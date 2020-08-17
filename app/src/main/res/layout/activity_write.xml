@@ -35,13 +35,23 @@
                 android:layout_gravity="center"
                 android:src="@drawable/user" />
 
+            <ImageView
+                android:id="@+id/post_img_upload_button"
+                android:layout_gravity="center"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginBottom="0dp"
+                android:layout_marginTop="25dp"
+                android:src="@drawable/imagebutton"/>
+
             <EditText
                 android:id="@+id/post_title"
-                android:layout_width="260dp"
+                android:layout_width="249dp"
                 android:layout_height="60dp"
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
                 android:layout_gravity="center"
-                android:hint="제목을 입력해주세요"/>
+                android:hint=" 제목을 입력해주세요"/>
+
         </LinearLayout>
 
         <LinearLayout
@@ -68,29 +78,20 @@
                 android:gravity="top"
                 android:background="#FFFFFF"
                 android:hint="공모전 및 스터디 활동 개요를 작성해주세요"/>
+
             </LinearLayout>
 
         </LinearLayout>
 
         <Button
-            android:id="@+id/post_img_upload_button"
+            android:id="@+id/post_upload_button"
             android:layout_gravity="center"
             android:layout_width="360dp"
             android:background="#B3D4F4"
             android:layout_height="wrap_content"
-            android:text="PHOTO UPLOAD"
-            android:textColor="#FFFFFF"
-            android:layout_marginTop="30dp" />
-
-        <Button
-            android:id="@+id/post_upload_button"
-            android:layout_gravity="center"
-            android:layout_width="360dp"
-            android:background="#FFFFFF"
-            android:layout_height="wrap_content"
             android:text="POST UPLOAD"
-            android:textColor="#B3D4F4"
-            android:layout_marginTop="10dp" />
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="20dp" />
 
 
     </LinearLayout>
